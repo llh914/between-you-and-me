@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Between You and Me</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="styletest.css">	
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Pacifico" rel="stylesheet">
+
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+<body>
+	<div id="head">
+		<h1>Between You &amp; Me</h1>
+		<i class="fa fa-user-circle fa-2x"></i>
+		<i class="fa fa-info fa-2x"></i>
+	</div>
+
+	<div class="content-panel">
+
+		<div id="user-form">	
+				  <!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#search" aria-controls="home" role="tab"data-toggle="tab">Search</a></li>
+				<li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
+			</ul>
+				  <!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="search">
+				    <form id="user-form">
+						<label for="place-selection">We want to...</label>
+						<select class="form-control" id="place-dropdown">
+		  					<option>Eat food</option>
+							<option>Catch a flick</option>
+							<option>Get pampered</option>
+							<option>Grab coffee</option>
+							<option>Enjoy cocktails</option>
+							<option>Be outside</option>
+						</select>
+
+						<div class="form-group">
+							<label for="userAddress1">Between</label>
+							<input type="address" class="form-control" id="address1" placeholder="First Address">
+		  				</div>
+		  				<div class="form-group">
+		    				<label for="userAddress2">And</label>
+		    				<input type="address" class="form-control" id="address2" placeholder="Second Address">
+		  				</div>
+		  				
+						<div id="#places-list"></div>
+						<div id="button-submit">Let's go!</div>
+					</form>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="favorites">
+					<div id="saved-favorites"></div>
+				</div>
+			</div>
+		</div>
+		
+<!-- 		<div id="mini-footer"><p>&copy; Team Three</p></div> -->
+	
+	</div>
+
+	<div id="map"></div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdhuy2CgWUiYNPHMFduiz4Jp_7xebQbpk&callback=initMap">
+    </script>
+	<script type="text/javascript" src="maptest.js"></script>
+	<script type="text/javascript" src="assets/app.js"></script>
+</body>
+</html>
