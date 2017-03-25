@@ -96,3 +96,7 @@ div.form-group {
     margin: 10px auto;
 }
 
+#registerButtons{
+	float: right;
+	/*margin-top: 16px*/;
+}

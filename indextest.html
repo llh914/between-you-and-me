@@ -8,21 +8,28 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="styletest.css">	
+	<link rel="stylesheet" href="assets/styletest.css">	
 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Pacifico" rel="stylesheet">
-
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 </head>
 
 <body>
-	<div id="head">
-		<h1>Between You &amp; Me</h1>
+
+<nav class="navbar" id="head">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <h1>Between You &amp; Me</h1>
 		<i class="fa fa-user-circle fa-2x"></i>
 		<i class="fa fa-info fa-2x"></i>
-	</div>
-
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signUpModal" id="signUp-button">Sign Up</button>
+      <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#logInModal" id="logIn-button">Log in</button>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
 	<div class="content-panel">
 
 		<div id="user-form">	
@@ -59,7 +66,9 @@
 					</form>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="favorites">
-					<div id="saved-favorites"></div>
+					<div id="saved-favorites">
+						<p>Please <a data-toggle="modal" data-target="#signUpModal">sign up</a> or <a data-toggle="modal" data-target="#logInModal">log in</a> to view saved favorites</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -69,12 +78,84 @@
 	</div>
 
 	<div id="map"></div>
-
+			<!-- Modal -->
+	<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+	      </div>
+	      <div class="modal-body">
+	       <form>
+	       <div class="form-group">
+			    <label for="name">Name</label>
+			    <input type="text" class="form-control" id="name" placeholder="John Doe">
+			  </div>	 
+	       	<div class="form-group">
+			    <label for="signUpEmail">Email address</label>
+			    <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+			  </div>
+			  <div class="form-group">
+			    <label for="signUpPassword">Password</label>
+			    <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+			  </div>
+			  <div class="form-group">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox"> Remember me
+			        </label>
+			      </div>
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+	      </div>
+	      <div class="modal-body">
+	       <form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Email address</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			  </div>
+			  <div class="form-group">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox"> Remember me
+			        </label>
+			      </div>
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdhuy2CgWUiYNPHMFduiz4Jp_7xebQbpk&callback=initMap">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ14qyEbfjPi8adN3-8L8hea05R9MYTtg&callback=initMap">
     </script>
-	<script type="text/javascript" src="maptest.js"></script>
+	<script type="text/javascript" src="assets/maptest.js"></script>
 	<script type="text/javascript" src="assets/app.js"></script>
 </body>
 </html>
