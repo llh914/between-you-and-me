@@ -16,6 +16,10 @@ var lat2=0;
 
 var lng2=0;
 
+var map;
+
+var infowindow;
+
 $.ajax({
 	url: queryURL1,
 	method: "GET"
@@ -25,6 +29,8 @@ $.ajax({
 	lat1 = result[0].geometry.location.lat;
 
 	lng1 = result[0].geometry.location.lng;
+	console.log(lat1)
+	console.log(lng1)
 
 	$.ajax({
 		url: queryURL2,
@@ -35,6 +41,8 @@ $.ajax({
 	lat2 = result[0].geometry.location.lat;
 
 	lng2 = result[0].geometry.location.lng;
+	console.log(lat2)
+	console.log(lng2)
 
 	getMidPoint(lat1,lng1,lat2,lng2);
 	});
@@ -45,23 +53,52 @@ function getMidPoint(lat1,lng1,lat2,lng2) {
 	var yPlace = new google.maps.LatLng(lat2, lng2);
 
 	var midpointLat = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lat();
-	var midpointLong = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lng();
+	var midpointLng = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lng();
+	console.log(midpointLat)
+	console.log(midpointLng)
 
-	getZip(midpointLat,midpointLong);
-};
-
-function getZip(midpointLat,midpointLong) {
-	$.ajax({
-		url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" 
-		+ midpointLat 
-		+ "," 
-		+ midpointLong,
-		method: "GET"
-	}).done(function(response){
-		var result = response.results;
-
-		var midAddress = result[0].formatted_address;
-		console.log(midAddress);
-	})
-
+	initMap(midpointLat, midpointLng)
 }
+
+function initMap(midLat, midLng) {
+	console.log(midLat)
+	console.log(midLng)
+var searchLocation = {lat: midLat, lng: midLng};
+
+map = new google.maps.Map(document.getElementById('map'), {
+  center: searchLocation,
+  zoom: 15
+});
+
+infowindow = new google.maps.InfoWindow();
+var service = new google.maps.places.PlacesService(map);
+service.textSearch({
+	  location: searchLocation,
+	  radius: 500,
+	  type: ['restaurant']
+	}, callback);
+}
+
+function callback(results, status) {
+	if (status === google.maps.places.PlacesServiceStatus.OK) {
+	  for (var i = 0; i < results.length; i++) {
+	    createMarker(results[i]);
+	  }
+	}
+}
+
+function createMarker(place) {
+	var placeLoc = place.geometry.location;
+	var marker = new google.maps.Marker({
+	  map: map,
+	  position: place.geometry.location
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+	  infowindow.setContent("<strong>" + place.name + "</strong>" + "</br>" + place.formatted_address);
+	  infowindow.open(map, this);
+	});
+}
+
+
+
