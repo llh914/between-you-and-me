@@ -81,9 +81,14 @@ label{
 }
 
 div.form-group {
-	margin: 0;
+	margin: 12px;
 }
-
+#favorites p{
+	padding-top: 12px;
+}
+#favorites a{
+	color: #00b7ce;
+}
 #button-submit {
     border: none;
     text-align: center;
