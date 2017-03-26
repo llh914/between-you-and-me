@@ -95,8 +95,18 @@ div.form-group {
     color: #fff;
     margin: 10px auto;
 }
-
-#registerButtons{
-	float: right;
-	/*margin-top: 16px*/;
+#modal-submit{
+	background-color: #00b7ce; 
+	color: #fff;
+}
+#displayButtons{
+	margin-right: 5px;
+}
+#logIn-button,
+#question-button{
+	color:#fff;
+	background-color: #00b7ce;
+	font-size: 18px; 
+	margin-top:12px;
+	margin-bottom: 12px;
 }
