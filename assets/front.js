@@ -291,6 +291,8 @@ var resizeTimer;
     });
 
 $( document ).ready(function() {
+    $("#myTab li:eq(1) a").tab('show');
+
     if ($(window).width() <= 767) {
         $('#responsive-menu-button').sidr({
             name: 'sidr-main',
