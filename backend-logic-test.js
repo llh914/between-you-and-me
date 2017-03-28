@@ -97,7 +97,7 @@ function createMarker(place) {
 	google.maps.event.addListener(marker, 'click', function() {
 		var contentString = '<div class="window-title"><h4>' + place.name + '</h4></div>' 
 		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
-		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>'1;
+		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>';
 		infowindow.setContent(contentString);
 		infowindow.open(map, this);
 	});
