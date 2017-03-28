@@ -51,10 +51,6 @@
 		width: 25%;
 	}
 
-	.btn, .navbar-btn {
-		float: right;
-	}
-
 	.content-panel {
 		display: none;
 	}
@@ -83,4 +79,20 @@
 	.sidr{
 		width: 65%;
 	}
+
+	.navbar-header {
+    width: 65%;
+    padding-left: 10px;
+    text-align: center;
+    font-size: 12px;
+	}
+	#logIn-button, #question-button {
+		padding: 5px;
+		font-size: 16px;
+	}
+	#displayButtons {
+    display: flex;
+    justify-content: space-around;
+	}
+}
 }
