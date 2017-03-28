@@ -80,7 +80,7 @@ label{
 	width: 95%;
 }
 
-div.form-group {
+.form-group {
 	margin: 12px;
 }
 #favorites p{
@@ -114,4 +114,8 @@ div.form-group {
 	font-size: 18px; 
 	margin-top:12px;
 	margin-bottom: 12px;
+}
+.display-info{
+	line-height: 2;
+	padding: 20px;
 }
