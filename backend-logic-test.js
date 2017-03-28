@@ -95,8 +95,11 @@ function createMarker(place) {
 	});
 
 	google.maps.event.addListener(marker, 'click', function() {
-	  infowindow.setContent("<strong>" + place.name + "</strong>" + "</br>" + place.formatted_address);
-	  infowindow.open(map, this);
+		var contentString = '<div class="window-title"><h4>' + place.name + '</h4></div>' 
+		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
+		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>';
+		infowindow.setContent(contentString);
+		infowindow.open(map, this);
 	});
 }
 
