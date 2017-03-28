@@ -264,8 +264,44 @@ function initMap() {
     };
 
 
-$('#responsive-menu-button').sidr({
-    name: 'sidr-main',
-    source: '.content-panel'
-});
+var resizeTimer;
 
+    $(window).on('resize', function(e) {
+
+      clearTimeout(resizeTimer);
+        
+      resizeTimer = setTimeout(function() {
+
+              if ($(window).width() <= 767) {
+                    $('#responsive-menu-button').sidr({
+                    name: 'sidr-main',
+                    source: '.content-panel'
+                });
+            }
+          
+            if ($(window).width() >= 767){
+                $('#responsive-menu-button').sidr({
+                    name: 'sidr-main',
+                    source: ''
+                });
+            }
+                
+      }, 250);
+
+    });
+
+$( document ).ready(function() {
+    if ($(window).width() <= 767) {
+        $('#responsive-menu-button').sidr({
+            name: 'sidr-main',
+            source: '.content-panel'
+        });
+    };
+          
+    if ($(window).width() >= 767){
+        $('#responsive-menu-button').sidr({
+            name: 'sidr-main',
+            source: ''
+        });
+    };
+});
