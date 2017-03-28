@@ -32,7 +32,6 @@
 		text-align: left;
 		padding: 0;
 		margin: 0;
-
 	}
 
 	#head {
@@ -77,5 +76,11 @@
 	.content-panel {
 		left:-80%;
 		position: absolute;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.sidr{
+		width: 65%;
 	}
 }
