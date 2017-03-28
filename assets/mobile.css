@@ -73,6 +73,14 @@
 		left:-80%;
 		position: absolute;
 	}
+
+	#map {
+		position: fixed;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+	}
 }
 
 @media only screen and (max-width: 480px) {
@@ -81,18 +89,25 @@
 	}
 
 	.navbar-header {
-    width: 65%;
-    padding-left: 10px;
-    text-align: center;
-    font-size: 12px;
+    	width: 65%;
+    	padding-left: 10px;
+    	text-align: center;
+    	font-size: 12px;
 	}
 	#logIn-button, #question-button {
 		padding: 5px;
 		font-size: 16px;
 	}
-	#displayButtons {
-    display: flex;
-    justify-content: space-around;
+	#displayButtons {    	
+    	display: flex;
+    	justify-content: space-between;
 	}
-}
+	.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    	margin-right: 0px;
+    	margin-left: -15px;
+	}
+	.container-fluid {
+		justify-content: center;
+	}
+	
 }
