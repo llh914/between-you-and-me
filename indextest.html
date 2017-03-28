@@ -20,12 +20,10 @@
   <div class="container-fluid">
     <div class="navbar-header">
         <h1>Between You &amp; Me</h1>
-		<i class="fa fa-user-circle fa-2x"></i>
-		<i class="fa fa-info fa-2x"></i>
     </div>
-    <div class="nav navbar-nav navbar-right">
-      <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signUpModal" id="signUp-button">Sign Up</button>
-      <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#logInModal" id="logIn-button">Log in</button>
+    <div class="nav navbar-nav navbar-right" id="displayButtons">
+      <button type="button" class="btn navbar-btn" data-toggle="modal" data-target="#logInModal" id="logIn-button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
+      <button type="button" class="btn navbar-btn" data-toggle="modal" data-target="#questionModal" id="question-button">&#128712;</button>
     </div>
   </div>
 </nav>
@@ -42,16 +40,17 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="search">
 				    <form id="user-form">
+				    	<div class="form-group">
 						<label for="place-selection">We want to...</label>
-						<select class="form-control" id="place-dropdown">
-		  					<option>Eat food</option>
-							<option>Catch a flick</option>
-							<option>Get pampered</option>
-							<option>Grab coffee</option>
-							<option>Enjoy cocktails</option>
-							<option>Be outside</option>
-						</select>
-
+							<select class="form-control" id="place-dropdown">
+			  					<option>Eat food</option>
+								<option>Catch a flick</option>
+								<option>Get pampered</option>
+								<option>Grab coffee</option>
+								<option>Enjoy cocktails</option>
+								<option>Be outside</option>
+							</select>
+						</div>
 						<div class="form-group">
 							<label for="userAddress1">Between</label>
 							<input type="address" class="form-control" id="address1" placeholder="First Address">
@@ -67,7 +66,7 @@
 				</div>
 				<div role="tabpanel" class="tab-pane" id="favorites">
 					<div id="saved-favorites">
-						<p>Please <a data-toggle="modal" data-target="#signUpModal">sign up</a> or <a data-toggle="modal" data-target="#logInModal">log in</a> to view saved favorites</p>
+						<p>Please <a data-toggle="modal" data-target="#logInModal">log in</a> to view saved favorites</p>
 					</div>
 				</div>
 			</div>
@@ -78,74 +77,94 @@
 	</div>
 
 	<div id="map"></div>
-			<!-- Modal -->
-	<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<!-- Log In Modal -->
+	<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-	      </div>
 	      <div class="modal-body">
-	       <form>
-	       <div class="form-group">
-			    <label for="name">Name</label>
-			    <input type="text" class="form-control" id="name" placeholder="John Doe">
-			  </div>	 
-	       	<div class="form-group">
-			    <label for="signUpEmail">Email address</label>
-			    <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
-			  </div>
-			  <div class="form-group">
-			    <label for="signUpPassword">Password</label>
-			    <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
-			  </div>
-			  <div class="form-group">
-			      <div class="checkbox">
-			        <label>
-			          <input type="checkbox"> Remember me
-			        </label>
-			      </div>
-			  </div>
-			</form>
+	       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	       
+
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist">
+			    <li role="presentation" class="active"><a href="#logIn" aria-controls="logIn" role="tab" data-toggle="tab">Log In</a></li>
+			    <li role="presentation"><a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Sign Up</a></li>
+			  </ul>
+
+			  <!-- Tab panes -->
+			<div class="tab-content">
+			    <div role="tabpanel" class="tab-pane active" id="logIn">
+			    	<form>
+						<div class="form-group">
+							<label for="signUpEmail">Email address</label>
+							<input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="signUpPassword">Password</label>
+							<input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+						</div>
+						<div class="form-group">
+						    <div class="checkbox">
+						        <label>
+						          <input type="checkbox"> Remember me
+						        </label>
+						      </div>
+						</div>
+					</form>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="signUp"> 
+			    	<form>
+				       <div class="form-group">
+						    <label for="name">Name</label>
+						    <input type="text" class="form-control" id="name" placeholder="John Doe">
+						  </div>	 
+				       	<div class="form-group">
+						    <label for="signUpEmail">Email address</label>
+						    <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+						</div>
+						<div class="form-group">
+						    <label for="signUpPassword">Password</label>
+						    <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+						</div>
+						<div class="form-group">
+						    <div class="checkbox">
+						        <label>
+						        <input type="checkbox"> Remember me
+						        </label>
+						    </div>
+						</div>
+					</form>
+				</div>			  
+			</div>	       
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary">Submit</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn" id="modal-submit">Submit</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<!-- Info Modal -->
+	<div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+	        <h4 class="modal-title" id="myModalLabel">Information</h4>
 	      </div>
 	      <div class="modal-body">
-	       <form>
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">Email address</label>
-			    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-			  </div>
-			  <div class="form-group">
-			    <label for="exampleInputPassword1">Password</label>
-			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-			  </div>
-			  <div class="form-group">
-			      <div class="checkbox">
-			        <label>
-			          <input type="checkbox"> Remember me
-			        </label>
-			      </div>
-			  </div>
-			</form>
+	    	<p>Between You and Me works by finding the midpoint between two people. It will then suggest places in the area that match the activity you want to do.</p>
+	    	<p>Instructions:</p>
+	    	<ol>
+	    		<li>Pick the activity from dropdown menu that you want to do.</li>
+	    		<li>Put your address in the first address field.</li>
+	    		<li>Put the address of who you want to meet in the second address field</li>
+	    		<li>Click the "Let's Go!" button to view the results</li>
+	    	</ol>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary">Submit</button>
+
 	      </div>
 	    </div>
 	  </div>

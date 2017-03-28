@@ -81,9 +81,14 @@ label{
 }
 
 div.form-group {
-	margin: 0;
+	margin: 12px;
 }
-
+#favorites p{
+	padding-top: 12px;
+}
+#favorites a{
+	color: #00b7ce;
+}
 #button-submit {
     border: none;
     text-align: center;
@@ -95,8 +100,18 @@ div.form-group {
     color: #fff;
     margin: 10px auto;
 }
-
-#registerButtons{
-	float: right;
-	/*margin-top: 16px*/;
+#modal-submit{
+	background-color: #00b7ce; 
+	color: #fff;
+}
+#displayButtons{
+	margin-right: 5px;
+}
+#logIn-button,
+#question-button{
+	color:#fff;
+	background-color: #00b7ce;
+	font-size: 18px; 
+	margin-top:12px;
+	margin-bottom: 12px;
 }
