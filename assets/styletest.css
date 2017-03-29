@@ -89,6 +89,14 @@ label{
 #favorites a{
 	color: #00b7ce;
 }
+
+#favorites a:hover {
+	color: #E2F389;
+}
+
+.modal-open .modal,.btn:focus{
+    outline:none!important
+}
 #button-submit {
     border: none;
     text-align: center;
