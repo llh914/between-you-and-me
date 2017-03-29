@@ -83,11 +83,14 @@
 	}
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 480px){
 	.sidr{
 		width: 65%;
 	}
-
+	
+	h1 {
+		font-size: 1.60em;
+	}
 	.navbar-header {
     	width: 65%;
     	padding-left: 10px;
@@ -95,12 +98,13 @@
     	font-size: 12px;
 	}
 	#logIn-button, #question-button {
-		padding: 5px;
+		padding: 0;
+		padding-right: 5px;
 		font-size: 16px;
+		margin: 0;
 	}
 	#displayButtons {    	
-    	display: flex;
-    	justify-content: space-between;
+    	line-height: 60px;
 	}
 	.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
     	margin-right: 0px;
@@ -108,6 +112,13 @@
 	}
 	.container-fluid {
 		justify-content: center;
+	}
+	.modal-header, .display-info {
+		line-height: 1;
+	}
+
+	.modal-footer {
+		padding: none;
 	}
 	
 }
