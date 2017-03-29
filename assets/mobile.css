@@ -36,6 +36,7 @@
 
 	#head {
 		height: 60px;
+		position: fixed;
 	}
 
     #responsive-menu-button {
