@@ -103,17 +103,33 @@ label{
     width: 70%;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(255, 125, 125);
+    background-color: #ff7d7d;
     margin-top: 10px;
     color: #fff;
     margin: 10px auto;
 }
+
+#button-submit:hover, 
+#modal-submit:hover 
+{
+	background-color: #f27171;
+}
+
+#button-submit:active, 
+#modal-submit:active{
+	background-color: #cc5151;
+}
+
 #modal-submit{
-	background-color: #00b7ce; 
+	background-color: #ff7d7d; 
 	color: #fff;
 }
 #displayButtons{
-	margin-right: 5px;
+	margin-right: 8px;
+	position: fixed;
+    top: 0;
+    right: 0;
+    text-align: right;
 }
 #logIn-button,
 #question-button{
