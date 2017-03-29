@@ -9,80 +9,76 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="assets/styletest.css">	
-	<!-- external stylesheet for mobile -->
-	<link rel="stylesheet" href="assets/mobile.css">
-	<!-- Google Fonts -->
+
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Pacifico" rel="stylesheet">
 
 </head>
 
 <body>
 
-	<nav class="navbar" id="head">
-	  <div class="container-fluid">
-	  <div class="nav navbar-nav navbar-btn">
-	  <a id="responsive-menu-button" href="#sidr-main"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-	  </div>
-	    <div class="navbar-header">
-	    	<!-- Button for Sidr mobile menu -->
-	        <h1>Between You &amp; Me</h1>
-	    </div>
-	    <div class="nav navbar-nav navbar-right" id="displayButtons">
-	      <button type="button" class="btn navbar-btn navbar-right" data-toggle="modal" data-target="#logInModal" id="logIn-button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
-	      <button type="button" class="btn navbar-btn navbar-right" data-toggle="modal" data-target="#questionModal" id="question-button"><span class="glyphicon glyphicon-info-sign"></span></button>
-	    </div>
-	  </div>
-	</nav>
+<nav class="navbar" id="head">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <h1>Between You &amp; Me</h1>
+    </div>
+    <div class="nav navbar-nav navbar-right" id="displayButtons">
+      <button type="button" class="btn navbar-btn" data-toggle="modal" data-target="#logInModal" id="logIn-button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
+      <button type="button" class="btn navbar-btn" data-toggle="modal" data-target="#questionModal" id="question-button">&#128712;</button>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+	<div class="content-panel">
 
-	<div id="sidr-placeholder"></div>
-
-	<div class="container-fluid">
-		<div class="content-panel" id="sidr">
-
-			<div id="user-form">	
-					  <!-- Nav tabs -->
-				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#search" aria-controls="home" role="tab"data-toggle="tab">Search</a></li>
-					<li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
-				</ul>
-					  <!-- Tab panes -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="search">
-					    <form id="user-form">
-					    	<div class="form-group">
-								<label for="place-selection">We want to...</label>
-								<select class="form-control" id="place-dropdown">
-				  					<option>Eat food</option>
-									<option>Catch a flick</option>
-									<option>Get pampered</option>
-									<option>Grab coffee</option>
-									<option>Enjoy cocktails</option>
-									<option>Be outside</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="userAddress1">Between</label>
-								<input type="address" class="form-control" id="address1" placeholder="First Address">
-			  				</div>
-			  				<div class="form-group">
-			    				<label for="userAddress2">And</label>
-			    				<input type="address" class="form-control" id="address2" placeholder="Second Address">
-			  				</div>
-			  				
-							<div id="#places-list"></div>
-							<div id="button-submit">Let's go!</div>
-						</form>
-					</div>
-					<div role="tabpanel" class="tab-pane" id="favorites">
-						<div id="saved-favorites">
-							<p>Please <a data-toggle="modal" data-target="#logInModal">log in</a> to view saved favorites</p>
+		<div id="user-form">	
+				  <!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#search" aria-controls="home" role="tab"data-toggle="tab">Search</a></li>
+				<li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
+			</ul>
+				  <!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="search">
+				    <form id="user-form">
+				    	<div class="form-group">
+						<label for="place-selection">We want to...</label>
+							<select class="form-control" id="place-dropdown">
+			  					<option value="restaurant">Eat food</option>
+								<option value="movie_theater">Catch a flick</option>
+								<option value="beauty_salon">Get pampered</option>
+								<option value="cafe">Grab coffee</option>
+								<option value="bar">Enjoy cocktails</option>
+								<option value="park">Be outside</option>
+							</select>
 						</div>
+
+		  				<div class="form-group">
+		  				<label for="userAddress1">Between</label>
+						 <input class="form-control" id="autocomplete" placeholder="First Address" type="text"></input>
+							</div>
+
+							<div class="form-group">
+							<label for="userAddress2">And</label>
+							  <input class="form-control" id="autocomplete2" placeholder="Second Address" type="text"></input>
+							</div>
+		  				
+						<div id="#places-list"></div>
+						<div id="button-submit">Let's go!</div>
+					</form>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="favorites">
+					<div id="saved-favorites">
+						<p>Please <a data-toggle="modal" data-target="#logInModal">log in</a> to view saved favorites</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+<!-- 		<div id="mini-footer"><p>&copy; Team Three</p></div> -->
+	
+	</div>
 
-	<div class="container-fluid" id="map"></div>
+	<div id="map"></div>
 	<!-- Log In Modal -->
 	<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
@@ -90,6 +86,7 @@
 	      <div class="modal-body">
 	       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	       
+
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist">
 			    <li role="presentation" class="active"><a href="#logIn" aria-controls="logIn" role="tab" data-toggle="tab">Log In</a></li>
@@ -117,7 +114,6 @@
 						</div>
 					</form>
 			    </div>
-
 			    <div role="tabpanel" class="tab-pane" id="signUp"> 
 			    	<form>
 				       <div class="form-group">
@@ -135,31 +131,30 @@
 						<div class="form-group">
 						    <div class="checkbox">
 						        <label>
-						        	<input type="checkbox"> Remember me
+						        <input type="checkbox"> Remember me
 						        </label>
 						    </div>
 						</div>
 					</form>
 				</div>			  
 			</div>	       
-	    </div>
-	    
-	    <div class="modal-footer">
+	      </div>
+	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	        <button type="submit" class="btn" id="modal-submit">Submit</button>
+	      </div>
 	    </div>
-	</div>
-	</div>
+	  </div>
 	</div>
 		<!-- Info Modal -->
 	<div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
-	    <div class="modal-content display-info">
+	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <h4 class="modal-title" id="myModalLabel">Information</h4>
 	      </div>
-	      <div class="modal-body display-info">
+	      <div class="modal-body">
 	    	<p>Between You and Me works by finding the midpoint between two people. It will then suggest places in the area that match the activity you want to do.</p>
 	    	<p>Instructions:</p>
 	    	<ol>
@@ -178,15 +173,11 @@
 	</div>
 </div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ14qyEbfjPi8adN3-8L8hea05R9MYTtg&callback=initMap">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ14qyEbfjPi8adN3-8L8hea05R9MYTtg&callback=initialize&libraries=places,geometry">
     </script>
-    
-	<script type="text/javascript" src="assets/jquery.sidr.min.js"></script>
-
-	<script type="text/javascript" src="assets/front.js"></script>
-<!-- 	<script type="text/javascript" src="assets/app.js"></script> -->
+	<script type="text/javascript" src="assets/maptest.js"></script>
+	<script type="text/javascript" src="assets/app.js"></script>
+	<script type="text/javascript" src="backend-logic-test.js"></script>
 </body>
 </html>
