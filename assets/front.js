@@ -272,7 +272,7 @@ var resizeTimer;
         
       resizeTimer = setTimeout(function() {
 
-              if ($(window).width() <= 767) {
+            if ($(window).width() <= 767) {
                     $('#responsive-menu-button').sidr({
                     name: 'sidr-main',
                     source: '.content-panel'
@@ -285,13 +285,15 @@ var resizeTimer;
                     source: ''
                 });
             }
+
+            jQuery.sidr('close', 'sidr-main');
                 
       }, 250);
 
     });
 
 $( document ).ready(function() {
-    $("#myTab li:eq(1) a").tab('show');
+    // $("#myTab li:eq(1) a").tab('show');
 
     if ($(window).width() <= 767) {
         $('#responsive-menu-button').sidr({
