@@ -114,11 +114,14 @@
 		justify-content: center;
 	}
 	.modal-header, .display-info {
-		line-height: 1;
+		line-height: 1.5;
 	}
 
 	.modal-footer {
 		padding: none;
+	}
+	.display-info{
+		padding: 10px;
 	}
 	
 }
