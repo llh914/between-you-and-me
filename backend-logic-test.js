@@ -16,112 +16,108 @@ $("#button-submit").click(function() {
 	var address1 = $("#autocomplete").val().trim();
 	var address2 = $("#autocomplete2").val().trim();
 
-var queryURL1 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address1;
+    var queryURL1 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address1;
+    var queryURL2 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address2;
 
-var queryURL2 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address2;
+    //Ajax call to Google geometry API to gather latitude and longitudes of addresses.
+    $.ajax({
+    	url: queryURL1,
+    	method: "GET"
+    }).done(function(response) {
+    	var result = response.results;
 
-//Ajax call to Google geometry API to gather latitude and longitudes of addresses.
-$.ajax({
-	url: queryURL1,
-	method: "GET"
-}).done(function(response) {
-	var result = response.results;
+    	lat1 = result[0].geometry.location.lat;
 
-	lat1 = result[0].geometry.location.lat;
+    	lng1 = result[0].geometry.location.lng;
 
-	lng1 = result[0].geometry.location.lng;
-	console.log(lat1)
-	console.log(lng1)
+    	$.ajax({
+    		url: queryURL2,
+    		method: "GET"
+    	}).done(function(response) {
+    	var result = response.results;
 
-	$.ajax({
-		url: queryURL2,
-		method: "GET"
-	}).done(function(response) {
-	var result = response.results;
+    	lat2 = result[0].geometry.location.lat;
 
-	lat2 = result[0].geometry.location.lat;
+    	lng2 = result[0].geometry.location.lng;
 
-	lng2 = result[0].geometry.location.lng;
-	console.log(lat2)
-	console.log(lng2)
-
-	getMidPoint(lat1,lng1,lat2,lng2);
-	});
-});
-
-//Midpoint function using Google's Geometry API to calculate midpoint between two locations.
-function getMidPoint(lat1,lng1,lat2,lng2) {
-	var xPlace = new google.maps.LatLng(lat1, lng1);
-	var yPlace = new google.maps.LatLng(lat2, lng2);
-
-	var midpointLat = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lat();
-	var midpointLng = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lng();
-
-	newMap(midpointLat, midpointLng)
-};
-
-//Creates map using midpoint latitude/longitude as search location.
-function newMap(midLat, midLng) {
-	var searchLocation = {lat: midLat, lng: midLng};
-
-	map = new google.maps.Map(document.getElementById('map'), {
-	  center: searchLocation,
-	  zoom: 15
-	});
-
-	//Create marker for Address 1
-	var marker1 = new google.maps.Marker({
-    position: {lat: lat1, lng: lng1},
-    map: map,
-    title: 'Me',
-    icon:  {
-    	path: google.maps.SymbolPath.CIRCLE,
-    	scale: 10,
-    	strokeColor: "#00b7ce"
-    	}
+    	getMidPoint(lat1,lng1,lat2,lng2);
+    	});
     });
 
-    google.maps.event.addListener(marker1, 'click', function() {
-		var contentString = "<span class='info-title'>Me: </span>" + address1;
+    //Midpoint function using Google's Geometry API to calculate midpoint between two locations.
+    function getMidPoint(lat1,lng1,lat2,lng2) {
+    	var xPlace = new google.maps.LatLng(lat1, lng1);
+    	var yPlace = new google.maps.LatLng(lat2, lng2);
 
-		infowindow.setContent(contentString);
-		
-		infowindow.open(map, this);
-	});
+    	var midpointLat = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lat();
+    	var midpointLng = google.maps.geometry.spherical.interpolate(xPlace, yPlace, 0.5).lng();
 
-	//Create marker for Address 2
-    var marker2 = new google.maps.Marker({
-    position: {lat: lat2, lng: lng2},
-    map: map,
-    title: 'You',
-    icon:  {
-    	path: google.maps.SymbolPath.CIRCLE,
-    	scale: 10,
-    	strokeColor: "#00b7ce"
-    	}
-  	});
-  	  google.maps.event.addListener(marker2, 'click', function() {
-		var contentString = "<span class='info-title'>You: </span>" + address2;
+    	newMap(midpointLat, midpointLng)
+    };
 
-		infowindow.setContent(contentString);
-		
-		infowindow.open(map, this);
-	});
+    //Creates map using midpoint latitude/longitude as search location.
+    function newMap(midLat, midLng) {
+    	var searchLocation = {lat: midLat, lng: midLng};
 
-	//Call to Google's text search API to search mipoint location with user-specified search parameters.
-	infowindow = new google.maps.InfoWindow();
+    	map = new google.maps.Map(document.getElementById('map'), {
+    	  center: searchLocation,
+    	  zoom: 15
+    	});
 
-	var service = new google.maps.places.PlacesService(map);
+    	//Create marker for Address 1
+    	var marker1 = new google.maps.Marker({
+        position: {lat: lat1, lng: lng1},
+        map: map,
+        title: 'Me',
+        icon:  {
+        	path: google.maps.SymbolPath.CIRCLE,
+        	scale: 10,
+        	strokeColor: "#00b7ce"
+        	}
+        });
 
-	var placeType = $("#place-dropdown").val();
+        google.maps.event.addListener(marker1, 'click', function() {
+    		var contentString = "<span class='info-title'>Me: </span>" + address1;
 
-	service.textSearch({
-		location: searchLocation,
-	  	radius: 500,
-	  	type: placeType
-	}, callback);
+    		infowindow.setContent(contentString);
+    		
+    		infowindow.open(map, this);
+    	});
 
-	//map styling
+    	//Create marker for Address 2
+        var marker2 = new google.maps.Marker({
+        position: {lat: lat2, lng: lng2},
+        map: map,
+        title: 'You',
+        icon:  {
+        	path: google.maps.SymbolPath.CIRCLE,
+        	scale: 10,
+        	strokeColor: "#00b7ce"
+        	}
+      	});
+
+      	google.maps.event.addListener(marker2, 'click', function() {
+    		var contentString = "<span class='info-title'>You: </span>" + address2;
+
+    		infowindow.setContent(contentString);
+    		
+    		infowindow.open(map, this);
+    	});
+
+    	//Call to Google's text search API to search mipoint location with user-specified search parameters.
+    	infowindow = new google.maps.InfoWindow();
+
+    	var service = new google.maps.places.PlacesService(map);
+
+    	var placeType = $("#place-dropdown").val();
+
+    	service.textSearch({
+    		location: searchLocation,
+    	  	radius: 500,
+    	  	type: placeType
+    	}, callback);
+
+	//Map styling
   	var styledMapType = new google.maps.StyledMapType(
 
         [
@@ -367,41 +363,37 @@ function newMap(midLat, midLng) {
             }
         ],
         {name: 'Styled Map'});
-	map.mapTypes.set('styled_map', styledMapType);
-    map.setMapTypeId('styled_map');
-};
+    	map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+    };
 
-//Callback to confirm successful API call.
-function callback(results, status) {
-	if (status === google.maps.places.PlacesServiceStatus.OK) {
-	  for (var i = 0; i < results.length; i++) {
-	    createMarker(results[i]);
-	  }
-	}
-};
+    //Callback to confirm successful API call.
+    function callback(results, status) {
+    	if (status === google.maps.places.PlacesServiceStatus.OK) {
+    	  for (var i = 0; i < results.length; i++) {
+    	    createMarker(results[i]);
+    	  }
+    	}
+    };
 
-//Create map markers.
-function createMarker(place) {
-	var directionsURL = "https://www.google.com/maps?q=" + place.formatted_address + '" target="_blank"';
-	var marker = new google.maps.Marker({
-	  map: map,
-	  position: place.geometry.location
-	});
+    //Create map markers.
+    function createMarker(place) {
+    	var directionsURL = "https://www.google.com/maps?q=" + place.formatted_address + '" target="_blank"';
+    	var marker = new google.maps.Marker({
+    	  map: map,
+    	  position: place.geometry.location
+    	});
 
-	//Insert name, address, rating, and directions into marker info-windows. Revealed when clicked.
-	google.maps.event.addListener(marker, 'click', function() {
-		var contentString = '<div class="window-title info-title">' + place.name + '</div>' 
-		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
-		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>'
-		+ '<div class="window-directions"><a href="' + directionsURL + '>Get Directions</a></div>';
+    	//Insert name, address, rating, and directions into marker info-windows. Revealed when clicked.
+    	google.maps.event.addListener(marker, 'click', function() {
+    		var contentString = '<div class="window-title info-title">' + place.name + '</div>' 
+    		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
+    		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>'
+    		+ '<div class="window-directions"><a href="' + directionsURL + '>Get Directions</a></div>';
 
-		infowindow.setContent(contentString);
-		
-		infowindow.open(map, this);
-	});
-}
-
+    		infowindow.setContent(contentString);
+    		
+    		infowindow.open(map, this);
+    	});
+    }
 });
-
-
-

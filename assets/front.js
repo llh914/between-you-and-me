@@ -1,3 +1,23 @@
+//Initializes Google Maps APIs for autocomplete and the map.
+function initialize() {
+    initAutocomplete();
+    initMap();
+}
+
+//Google Autocomplete API for address inputs.
+function initAutocomplete() {
+// Create the autocomplete object, restricting the search to geographical
+// location types.
+    autocomplete = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+    {types: ['geocode']});
+
+    autocomplete2 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */(document.getElementById('autocomplete2')),
+    {types: ['geocode']});
+}
+
+//Map function.
 function initMap() {
 
     var styledMapType = new google.maps.StyledMapType(
