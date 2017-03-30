@@ -21,7 +21,7 @@
 	<nav class="navbar" id="head">
 	  <div class="container-fluid">
 	  <div class="nav navbar-nav navbar-btn">
-	  <a id="responsive-menu-button" href="#sidr-main"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+	  <a id="responsive-menu-button"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
 	  </div>
 	    <div class="navbar-header">
 	    	<!-- Button for Sidr mobile menu -->
@@ -34,15 +34,15 @@
 	  </div>
 	</nav>
 
-	<div id="sidr-placeholder"></div>
+<!-- 	<div id="sidr-placeholder"></div> -->
+<!-- ?new version -->
+	<div class="container">
+		<div class="content-panel">
 
-	<div class="container-fluid">
-		<div class="content-panel" id="sidr">
-
-			<div id="user-form">	
+			<div id="user-tabs">	
 					  <!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#search" aria-controls="home" role="tab"data-toggle="tab">Search</a></li>
+					<li role="presentation" class="active"><a href="#search" aria-controls="home" role="tab" data-toggle="tab">Search</a></li>
 					<li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
 				</ul>
 					  <!-- Tab panes -->
@@ -71,8 +71,8 @@
 								<input class="form-control" id="autocomplete2" placeholder="Second Address" type="text">
 							</div>
 			  				
-							<div id="#places-list"></div>
 							<div id="button-submit">Let's go!</div>
+
 						</form>
 					</div>
 
@@ -186,9 +186,10 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ14qyEbfjPi8adN3-8L8hea05R9MYTtg&callback=initialize&libraries=places,geometry">
     </script>
     
-	<script type="text/javascript" src="assets/jquery.sidr.min.js"></script>
+<!-- 	<script type="text/javascript" src="assets/jquery.sidr.min.js"></script> -->
 
-	<script type="text/javascript" src="assets/front.js"></script>
+<!-- 	<script type="text/javascript" src="assets/front.js"></script> -->
 	<script type="text/javascript" src="backend-logic-test.js"></script>
+	<script type="text/javascript" src="assets/front.js"></script>
 </body>
 </html>

@@ -48,6 +48,10 @@ a {
     z-index: 1;
 }
 
+.tab-content {
+	width: 100%;
+}
+
 .content-panel {
 	background-color: #fff;
 	margin: 0;
@@ -66,10 +70,6 @@ a {
 	max-height: 85%;
 	display: flex;
 	justify-content: center;
-}
-
-#places-list {
-	height: 200px;
 }
 
 label{
