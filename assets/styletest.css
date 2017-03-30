@@ -15,9 +15,10 @@ html, body {
 	position: absolute;
 	top: 0;
 	z-index: 1000;
-	-moz-box-shadow:    2px 0px 5px 1px #007584;
- 	-webkit-box-shadow: 2px 0px 5px 1px #007584;
-	box-shadow: 2px 0px 5px 1px #007584;
+	-moz-box-shadow:    0 0.1em 0.55em 0 rgba(0, 117, 132, 0.92);
+ 	-webkit-box-shadow: 0 0.1em 0.55em 0 rgba(0, 117, 132, 0.92);
+	box-shadow: 		0 0.1em 0.55em 0 rgba(0, 117, 132, 0.92);
+	border-radius: 0px;
 }
 
 h1 {
@@ -57,9 +58,9 @@ a {
     width: 25%;
     z-index: 500;
     padding: 15px;
-    -moz-box-shadow:    1px 2px 5px 1px #ccc;
- 	-webkit-box-shadow: 1px 2px 5px 1px #ccc;
-	box-shadow: 1px 2px 5px 1px #ccc;
+    -moz-box-shadow:    1px 2px 10px 1px rgba(47, 47, 47, 0.25);
+ 	-webkit-box-shadow: 1px 2px 10px 1px rgba(47, 47, 47, 0.25);
+	box-shadow: 		1px 2px 10px 1px rgba(47, 47, 47, 0.25);
 	border-radius: 15px;
 	height: 85%;
 	max-height: 85%;
@@ -125,19 +126,23 @@ label{
 	color: #fff;
 }
 #displayButtons{
-	margin-right: 8px;
-	position: fixed;
-    top: 0;
-    right: 0;
+	margin-right: 20px;
     text-align: right;
+	vertical-align: center;
 }
-#logIn-button,
-#question-button{
-	color:#fff;
-	background-color: #00b7ce;
-	font-size: 18px; 
-	margin-top:12px;
-	margin-bottom: 12px;
+
+#logIn-button, #question-button {
+    color: #fff;
+    background: none;
+    font-size: 1.6em;
+    margin-right: 20px;
+    line-height: 60px;
+    padding: 3px;
+}
+
+.navbar-btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .display-info{
 	line-height: 2;
