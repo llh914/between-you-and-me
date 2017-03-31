@@ -285,18 +285,33 @@ function initMap() {
 
 var mobileMenu = function() {
   /* Push the body and the nav over by 285px over */
-  $('#responsive-menu-button').click(function() {
-    $('.content-panel').animate({
-      left: "0px"
-    }, 200);
+  $('#responsive-menu-button').click(function(event) {
+    event.preventDefault();
+    if ($(this).hasClass('in')) {
+        $('.content-panel').animate({
+          left: "0px"
+        }, 200);
 
-    $('body').animate({
-      left: "60%"
-    }, 200);
+        $('body').animate({
+          left: "60%"
+        }, 200);
+        $(this).addClass('out').removeClass('in');
+
+    }else{
+        $('.content-panel').animate({
+            left: "-60%"
+        }, 200);
+
+        $('body').animate({
+            left: "0px"
+        }, 200);
+        $(this).addClass('in').removeClass('out');
+    };
   });
 
   /* Then push them back */
-  $('#button-submit').click(function() {
+  $('#button-submit').click(function(event) {
+    event.preventDefault();
     $('.content-panel').animate({
       left: "-60%"
     }, 200);
@@ -306,5 +321,6 @@ var mobileMenu = function() {
     }, 200);
   });
 };
+
 $(document).ready(mobileMenu);
 
