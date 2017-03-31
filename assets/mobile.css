@@ -84,7 +84,6 @@
     	color: #fff;
     	background: none;
     	font-size: 1.38em;
-    	margin-right: 20px;
     	line-height: 50px;
     	float: right;
 	}
@@ -106,7 +105,6 @@
 
 	#logIn-button, #question-button {
 		font-size: 1.2em;
-		margin-right: 10px;
 	}
 	
 	#displayButtons {    	
@@ -128,12 +126,18 @@
 	#displayButtons {
 		margin-right: -20px;
 	}
+	#displayButtons span{
+		padding-left: 6px;
+		padding-right: 6px;
+	}
 }
 @media only screen and (max-width: 370px){
 	h1{
 		font-size: 1.25em;
 	}
-	#logIn-button, #question-button {
-		margin-right: 6px;
-	}
+	#displayButtons span{
+		padding-left: 3px;
+		padding-right: 3px;
+	}	
+
 }

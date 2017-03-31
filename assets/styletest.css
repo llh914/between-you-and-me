@@ -132,13 +132,17 @@ label{
 #displayButtons{
     text-align: right;
 	vertical-align: center;
+	margin-right: 6px;
+}
+#displayButtons span{
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
 #logIn-button, #question-button {
     color: #fff;
     background: none;
     font-size: 1.6em;
-    margin-right: 20px;
     line-height: 60px;
     padding: 3px;
 }
