@@ -75,9 +75,13 @@ a {
 label{
 	margin: 0;
 	padding: 0;
+	padding-bottom: 3px;
 }
 
 #user-form {
+	width: 95%;
+}
+#user-tabs{
 	width: 95%;
 }
 
@@ -126,7 +130,6 @@ label{
 	color: #fff;
 }
 #displayButtons{
-	margin-right: 20px;
     text-align: right;
 	vertical-align: center;
 }

@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title>Between You and Me</title>
-
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+	<!-- Style sheet for PC -->
 	<link rel="stylesheet" href="assets/styletest.css">	
-	<!-- external stylesheet for mobile -->
+	<!-- Style Sheet for Media Queries -->
 	<link rel="stylesheet" href="assets/mobile.css">
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Pacifico" rel="stylesheet">
@@ -17,28 +17,25 @@
 </head>
 
 <body>
-
+	<!-- Navbar -->
 	<nav class="navbar" id="head">
 	  <div class="container-fluid">
-	  <div class="nav navbar-nav navbar-btn">
-	  <a id="responsive-menu-button"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-	  </div>
-	    <div class="navbar-header">
-	    	<!-- Button for Sidr mobile menu -->
-	        <h1>Between You &amp; Me</h1>
-	    </div>
-	    <div class="nav navbar-nav navbar-right" id="displayButtons">
-	      <button type="button" class="btn navbar-btn navbar-right" data-toggle="modal" data-target="#logInModal" id="logIn-button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
-	      <button type="button" class="btn navbar-btn navbar-right" data-toggle="modal" data-target="#questionModal" id="question-button"><span class="glyphicon glyphicon-info-sign"></span></button>
-	    </div>
+		  <div class="nav navbar-nav navbar-btn">
+		  	<a id="responsive-menu-button" class="in"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+		  </div>
+		   <div class="navbar-header">
+		        <h1>Between You &amp; Me</h1>
+		   </div>
+		   <div class="nav navbar-nav navbar-right" id="displayButtons">
+		      <button type="button" class="btn navbar-btn navbar-right" data-toggle="modal" data-target="#logInModal" id="logIn-button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
+		      <button type="button" class="btn navbar-btn navbar-right" data-toggle="modal" data-target="#questionModal" id="question-button"><span class="glyphicon glyphicon-info-sign"></span></button>
+		   </div>	
 	  </div>
 	</nav>
 
-<!-- 	<div id="sidr-placeholder"></div> -->
-<!-- ?new version -->
+<!-- Search Panel -->
 	<div class="container">
 		<div class="content-panel">
-
 			<div id="user-tabs">	
 					  <!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
@@ -86,66 +83,67 @@
 		</div>
 
 	<div class="container-fluid" id="map"></div>
+	
 	<!-- Log In Modal -->
 	<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-body">
-	       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	     		<div class="modal-body">
+	       			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	       
-			  <!-- Nav tabs -->
-			  <ul class="nav nav-tabs" role="tablist">
-			    <li role="presentation" class="active"><a href="#logIn" aria-controls="logIn" role="tab" data-toggle="tab">Log In</a></li>
-			    <li role="presentation"><a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Sign Up</a></li>
-			  </ul>
+						<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+					    <li role="presentation" class="active"><a href="#logIn" aria-controls="logIn" role="tab" data-toggle="tab">Log In</a></li>
+					    <li role="presentation"><a href="#signUp" aria-controls="signUp" role="tab" data-toggle="tab">Sign Up</a></li>
+					</ul>
 
-			  <!-- Tab panes -->
-			<div class="tab-content">
-			    <div role="tabpanel" class="tab-pane active" id="logIn">
-			    	<form>
-						<div class="form-group">
-							<label for="signUpEmail">Email address</label>
-							<input type="email" class="form-control" id="signUpEmail" placeholder="Email">
-						</div>
-						<div class="form-group">
-							<label for="signUpPassword">Password</label>
-							<input type="password" class="form-control" id="signUpPassword" placeholder="Password">
-						</div>
-						<div class="form-group">
-						    <div class="checkbox">
-						        <label>
-						          <input type="checkbox"> Remember me
-						        </label>
-						      </div>
-						</div>
-					</form>
-			    </div>
+					  <!-- Tab panes -->
+					<div class="tab-content">
+					    <div role="tabpanel" class="tab-pane active" id="logIn">
+					    	<form>
+								<div class="form-group">
+									<label for="signUpEmail">Email address</label>
+									<input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label for="signUpPassword">Password</label>
+									<input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+								</div>
+								<div class="form-group">
+								    <div class="checkbox">
+								        <label>
+								        <input type="checkbox"> Remember me
+								        </label>
+								      </div>
+								</div>
+							</form>
+					    </div>
 
-			    <div role="tabpanel" class="tab-pane" id="signUp"> 
-			    	<form>
-				       <div class="form-group">
-						    <label for="name">Name</label>
-						    <input type="text" class="form-control" id="name" placeholder="John Doe">
-						  </div>	 
-				       	<div class="form-group">
-						    <label for="signUpEmail">Email address</label>
-						    <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
-						</div>
-						<div class="form-group">
-						    <label for="signUpPassword">Password</label>
-						    <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
-						</div>
-						<div class="form-group">
-						    <div class="checkbox">
-						        <label>
-						        	<input type="checkbox"> Remember me
-						        </label>
-						    </div>
-						</div>
-					</form>
-				</div>			  
-			</div>	       
-	    </div>
+					    <div role="tabpanel" class="tab-pane" id="signUp"> 
+					    	<form>
+						       <div class="form-group">
+								    <label for="name">Name</label>
+								    <input type="text" class="form-control" id="name" placeholder="John Doe">
+								</div>	 
+						       	<div class="form-group">
+								    <label for="signUpEmail">Email address</label>
+								    <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+								</div>
+								<div class="form-group">
+								    <label for="signUpPassword">Password</label>
+								    <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+								</div>
+								<div class="form-group">
+								    <div class="checkbox">
+								        <label>
+								        	<input type="checkbox"> Remember me
+								        </label>
+								    </div>
+								</div>
+							</form>
+						</div>			  
+					</div>	       
+	    		</div>
 	    
 	    <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -185,10 +183,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ14qyEbfjPi8adN3-8L8hea05R9MYTtg&callback=initialize&libraries=places,geometry">
     </script>
-    
-<!-- 	<script type="text/javascript" src="assets/jquery.sidr.min.js"></script> -->
-
-<!-- 	<script type="text/javascript" src="assets/front.js"></script> -->
 	<script type="text/javascript" src="backend-logic-test.js"></script>
 	<script type="text/javascript" src="assets/front.js"></script>
 </body>
