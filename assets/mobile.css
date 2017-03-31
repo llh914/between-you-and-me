@@ -1,5 +1,6 @@
-/*Mobile Slidr navigation CSS*/
+/*MOBILE CSS*/
 
+/*HAMBURGER BUTTON, ONLY DISPLAYS ON SMALLER WINDOW SIZES*/
 #responsive-menu-button {
     display: none;
     padding: 20px;
@@ -12,7 +13,7 @@
     vertical-align: center;
 }
 
-/*Media Queries*/
+/*MEDIA QUERIES*/
 @media only screen and (max-width: 767px){
 	body {
   		left: 0;
@@ -25,10 +26,10 @@
 		margin-left:-60% !important; 
 		min-width: 35%; 
 	}
-	
+
 	.content-panel{
 		top:0;
-		left: -60%;  /* start off behind the scenes */
+		left: -60%;
   		height: 100%;
   		position: fixed;
   		width: 60%;
@@ -86,14 +87,13 @@
 	#logIn-button, #question-button {
     	font-size: 1.38em;
     	line-height: 50px;
-    	/*float: right;*/
 	}
 }
 
 @media only screen and (max-width: 480px){
 
 	h1 {
-		font-size: 1.45em;
+		font-size: 1.43em;
 		text-align: center;
 	}
 	.navbar-header {
@@ -103,9 +103,12 @@
 	.navbar-btn, .navbar-nav {
 		margin: 0;
 	}
+	#responsive-menu-button {
+		margin-left: 5px;
+	}
 
 	#logIn-button, #question-button {
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 	
 	#displayButtons {    	

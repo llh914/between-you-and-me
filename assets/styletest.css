@@ -1,10 +1,11 @@
+/*GENERAL*/
 html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 400;
 }
 
@@ -36,6 +37,11 @@ a {
     text-decoration: none;
 }
 
+.form-control {
+	font-size: 16px;
+}
+
+/*MAP POSITIONING*/
 #map {
     height: 100vh;
     width: 100%;
@@ -48,6 +54,7 @@ a {
     z-index: 1;
 }
 
+/*ADDRES LOOKUP PANEL AND TABS*/
 .tab-content {
 	width: 100%;
 }
@@ -99,9 +106,7 @@ label{
 	color: #E2F389;
 }
 
-.modal-open .modal,.btn:focus{
-    outline:none!important
-}
+/*BUTTONS*/
 #button-submit {
     border: none;
     text-align: center;
@@ -113,6 +118,10 @@ label{
     color: #fff;
     margin: 10px auto;
     cursor: pointer;
+}
+
+.modal-open .modal,.btn:focus{
+    outline:none!important
 }
 
 #button-submit:hover, 
