@@ -14,7 +14,7 @@ html, body {
 	height: 70px;
 	position: absolute;
 	top: 0;
-	z-index: 1000;
+	z-index: 100;
 	-moz-box-shadow:    0 0.1em 0.55em 0 rgba(0, 117, 132, 0.92);
  	-webkit-box-shadow: 0 0.1em 0.55em 0 rgba(0, 117, 132, 0.92);
 	box-shadow: 		0 0.1em 0.55em 0 rgba(0, 117, 132, 0.92);
