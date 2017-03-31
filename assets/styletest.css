@@ -9,6 +9,11 @@ html, body {
 	font-weight: 400;
 }
 
+.form-control {
+	font-size: 16px;
+}
+
+/*Nav Bar*/
 #head {
 	background-color: #00b7ce;
 	width: 100%;
@@ -32,13 +37,28 @@ h1 {
 	color: #fff;
 }
 
-a {
-    color: #333;
-    text-decoration: none;
+
+#displayButtons{
+    text-align: right;
+	margin-right: 6px;
+}
+#displayButtons span, 
+#responsiv-menu-button span{
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
-.form-control {
-	font-size: 16px;
+#logIn-button, #question-button, #responsive-menu-button {
+    color: #fff;
+    background: transparent;
+    font-size: 1.6em;
+    line-height: 60px;
+    padding: 3px;
+}
+
+.navbar-btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 /*MAP POSITIONING*/
@@ -105,8 +125,7 @@ label{
 #favorites a:hover {
 	color: #E2F389;
 }
-
-/*BUTTONS*/
+/*Submit Buttons*/
 #button-submit {
     border: none;
     text-align: center;
@@ -118,10 +137,6 @@ label{
     color: #fff;
     margin: 10px auto;
     cursor: pointer;
-}
-
-.modal-open .modal,.btn:focus{
-    outline:none!important
 }
 
 #button-submit:hover, 
@@ -139,28 +154,12 @@ label{
 	background-color: #ff7d7d; 
 	color: #fff;
 }
-#displayButtons{
-    text-align: right;
-	margin-right: 6px;
-}
-#displayButtons span, 
-#responsiv-menu-button span{
-	padding-left: 12px;
-	padding-right: 12px;
+
+/*Modal*/
+.modal-open .modal,.btn:focus{
+    outline:none!important
 }
 
-#logIn-button, #question-button, #responsive-menu-button {
-    color: #fff;
-    background: transparent;
-    font-size: 1.6em;
-    line-height: 60px;
-    padding: 3px;
-}
-
-.navbar-btn {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
 .display-info{
 	line-height: 2;
 	padding: 20px;
