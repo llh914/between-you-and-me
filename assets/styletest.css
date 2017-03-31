@@ -112,6 +112,7 @@ label{
     margin-top: 10px;
     color: #fff;
     margin: 10px auto;
+    cursor: pointer;
 }
 
 #button-submit:hover, 

@@ -22,9 +22,10 @@
 	}
 
 	.pac-container { 
-		margin-left:-250px !important; 
+		margin-left:-60% !important; 
 		min-width: 35%; 
 	}
+	
 	.content-panel{
 		top:0;
 		left: -60%;  /* start off behind the scenes */
@@ -53,7 +54,7 @@
     	margin: 0;
     	padding: 0;
     	line-height: 60px;
-    	background-color: none;
+    	background: transparent;
 	}
 
 	.navbar-btn, .navbar-nav {
