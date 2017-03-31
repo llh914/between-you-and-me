@@ -24,9 +24,9 @@ if (favName === null) {
     favRating = [];
 } else {
     for (var i=0; i<favName.length; i++){
-    $("#saved-favorites").append("<p>" + favName[i] + "</p>"
+    $("#saved-favorites").append('<div data-index="' + [i] + '""><p><button type="button" class="close" id="delete">&times;</button>'+ favName[i] + "</p>"
         + "<p>" + favAddress[i] + "</p>"
-        + "<p>Rating: " + favRating[i] + "/5</p>")
+        + "<p>Rating: " + favRating[i] + "/5</p></div>")
     }
 };
 
@@ -421,11 +421,13 @@ $("#button-submit").click(function() {
 
 //Save to Favorites
 $(document).on("click", ".window-favorites", function() {
-    // $('#favorites').tab('show');
+    $('#favorites-tab, #favorites').addClass('active');
+    $('#search-tab, #search').removeClass('active');
 
     if ($(this).attr("data-saved") === "false"){
         var newDiv = $('<div>');
-        newDiv.html('<p>' + $(this).attr("data-name") + '</p>' 
+        newDiv.attr('data-index', favName.length)
+        newDiv.html('<p><button type="button" class="close" id="delete">&times;</button>' + $(this).attr("data-name") + '</p>' 
             + '<p>' + $(this).attr("data-address") + '</p>'
             + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>')
 
@@ -443,5 +445,16 @@ $(document).on("click", ".window-favorites", function() {
     }
 });
 
+$(document).on('click', '#delete', function() {
+    var currentIndex = $(this).parent().parent().attr('data-index');
 
+    $(this).parent().parent().empty();
 
+    favName.splice(currentIndex, 1);
+    favAddress.splice(currentIndex, 1);
+    favRating.splice(currentIndex, 1);
+
+    localStorage.setItem("keyName", JSON.stringify(favName));
+    localStorage.setItem("keyAddress", JSON.stringify(favAddress));
+    localStorage.setItem("keyRating", JSON.stringify(favRating));
+})
