@@ -11,6 +11,25 @@ var map;
 
 var infowindow;
 
+var favName = JSON.parse(localStorage.getItem("keyName"));
+
+var favAddress = JSON.parse(localStorage.getItem("keyAddress"));
+
+var favRating = JSON.parse(localStorage.getItem("keyRating"));
+
+//Checking for previously saved Favorites; if there are some, populate favorites list
+if (favName === null) {
+    favName = [];
+    favAddress = [];
+    favRating = [];
+} else {
+    for (var i=0; i<favName.length; i++){
+    $("#saved-favorites").append("<p>" + favName[i] + "</p>"
+        + "<p>" + favAddress[i] + "</p>"
+        + "<p>Rating: " + favRating[i] + "/5</p>")
+    }
+};
+
 //jQuery selector on submit button
 $("#button-submit").click(function() {
 	var address1 = $("#autocomplete").val().trim();
@@ -386,10 +405,12 @@ $("#button-submit").click(function() {
 
     	//Insert name, address, rating, and directions into marker info-windows. Revealed when clicked.
     	google.maps.event.addListener(marker, 'click', function() {
-    		var contentString = '<div class="window-title info-title">' + place.name + '</div>' 
+            var data = 'data-name="' + place.name + '" data-address="' + place.formatted_address + '" data-rating="' + place.rating + '" data-saved="false"';
+    		var contentString = '<div class="window-title">' + place.name + '</div>' 
     		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
     		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>'
-    		+ '<div class="window-directions"><a href="' + directionsURL + '>Get Directions</a></div>';
+    		+ '<div class="window-directions"><a href="' + directionsURL + '>Get Directions</a></div>'
+            + '<div class="window-favorites"' + data + '><a>Save to Favorites</a></div>';
 
     		infowindow.setContent(contentString);
     		
@@ -397,3 +418,30 @@ $("#button-submit").click(function() {
     	});
     }
 });
+
+//Save to Favorites
+$(document).on("click", ".window-favorites", function() {
+    // $('#favorites').tab('show');
+
+    if ($(this).attr("data-saved") === "false"){
+        var newDiv = $('<div>');
+        newDiv.html('<p>' + $(this).attr("data-name") + '</p>' 
+            + '<p>' + $(this).attr("data-address") + '</p>'
+            + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>')
+
+        $("#saved-favorites").append(newDiv);
+
+        favName.push($(this).attr("data-name"));
+        favAddress.push($(this).attr("data-address"));
+        favRating.push($(this).attr("data-rating"));
+
+        localStorage.setItem("keyName", JSON.stringify(favName));
+        localStorage.setItem("keyAddress", JSON.stringify(favAddress));
+        localStorage.setItem("keyRating", JSON.stringify(favRating));
+
+        $(this).attr("data-saved", "true");
+    }
+});
+
+
+
