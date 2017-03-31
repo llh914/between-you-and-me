@@ -7,6 +7,7 @@
     text-align: left;
     margin-left: 5px;
     text-align: left;
+    background-color: none;
     color: #fff;
     vertical-align: center;
 }
@@ -52,6 +53,7 @@
     	margin: 0;
     	padding: 0;
     	line-height: 60px;
+    	background-color: none;
 	}
 
 	.navbar-btn, .navbar-nav {
@@ -81,11 +83,9 @@
 	}
 
 	#logIn-button, #question-button {
-    	color: #fff;
-    	background: none;
     	font-size: 1.38em;
     	line-height: 50px;
-    	float: right;
+    	/*float: right;*/
 	}
 }
 
