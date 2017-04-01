@@ -437,7 +437,7 @@ $(document).on("click", ".window-favorites", function() {
         newDiv.html('<p id="saved-fav-title"><button type="button" class="close" id="delete">&times;</button>' + $(this).attr("data-name") + '</p>' 
             + '<p>' + $(this).attr("data-address") + '</p>'
             + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>'
-            + '<a href="'+ $(this).attr('data-directions') + '">Get Directions</a>')
+            + '<a href="'+ $(this).attr('data-directions') + '" target="_blank">Get Directions</a>')
 
         $("#saved-favorites").append(newDiv);
 
@@ -458,13 +458,15 @@ $(document).on("click", ".window-favorites", function() {
 $(document).on('click', '#delete', function() {
     var currentIndex = $(this).parent().parent().attr('data-index');
 
-    $(this).parent().parent().empty();
+    $(this).parent().parent().remove();
 
     favName.splice(currentIndex, 1);
     favAddress.splice(currentIndex, 1);
     favRating.splice(currentIndex, 1);
+    favDirections.splice(currentIndex, 1);
 
     localStorage.setItem("keyName", JSON.stringify(favName));
     localStorage.setItem("keyAddress", JSON.stringify(favAddress));
     localStorage.setItem("keyRating", JSON.stringify(favRating));
+    localStorage.setItem("keyDirections", JSON.stringify(favDirections));
 })
