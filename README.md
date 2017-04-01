@@ -8,7 +8,7 @@ An easy to use, mobile friendly, app that lets friends find places they want to 
 ## Screenshots
 ![Screenshot 3](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot3.png)
 ![Screenshot 4](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot4.png)
-![Screenshot 5](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot4.png)
+![Screenshot 5](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot5.png)
 ![Mobile View](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/mobile1.jpg)
 
 
