@@ -2,8 +2,8 @@
 An easy to use, mobile friendly, app that lets friends find places they want to go to in just a few clicks.
 
 ## Screenshots
-[[https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot1.png]]
-[[https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot2.png]]
+![Screenshot 1](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot1.png)
+![Screenshot 2](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot2.png)
 
 ## Technologies Used
 - jQuery
@@ -12,7 +12,7 @@ An easy to use, mobile friendly, app that lets friends find places they want to 
 - Snazzy Maps
 
 ## How it Works
-Between You & Me works by finding the midpoint between two addresses. Then it makes suggestions for places that match the activity the user wants to do. If anything looks good, the user can get a link to the directions and save the location to their favorites. For now, the list is saved in Local Storage, with the possibility of saving to Firebase in the future.
+Between You & Me works by finding the midpoint between two addresses. Then it makes suggestions for places that match the activity the user wants to do. If anything looks good, the user can get a link to the directions and save the location to their favorites. For now, the list is saved in Local Storage, with the possibility of saving to Firebase in the future. It's mobile-friendly too!
 
 ## Authors
 [Michelle Didier](https://github.com/meeshyd)
