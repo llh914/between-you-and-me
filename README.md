@@ -4,6 +4,7 @@ An easy to use, mobile friendly, app that lets friends find places they want to 
 ## Screenshots
 ![Screenshot 3](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot3.png)
 ![Screenshot 4](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot4.png)
+![Mobile View](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/mobile1.jpg)
 
 
 ## Technologies Used
@@ -14,6 +15,9 @@ An easy to use, mobile friendly, app that lets friends find places they want to 
 
 ## How it Works
 Between You & Me works by finding the midpoint between two addresses. Then it makes suggestions for places that match the activity the user wants to do. If anything looks good, the user can get a link to the directions and save the location to their favorites. For now, the list is saved in Local Storage, with the possibility of saving to Firebase in the future. In mobile, the panel is hidden and reappears when you click the menu button. 
+
+##See it in Actions
+[Between You and Me](https://between-you-and-me.herokuapp.com/)
 
 ## Authors
 - [Michelle Didier](https://github.com/meeshyd)
