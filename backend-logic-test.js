@@ -17,16 +17,22 @@ var favAddress = JSON.parse(localStorage.getItem("keyAddress"));
 
 var favRating = JSON.parse(localStorage.getItem("keyRating"));
 
+var favDirections = JSON.parse(localStorage.getItem("keyDirections"));
+
+var directionsURL;
+
 //Checking for previously saved Favorites; if there are some, populate favorites list
 if (favName === null) {
     favName = [];
     favAddress = [];
     favRating = [];
+    favDirections= [];
 } else {
     for (var i=0; i<favName.length; i++){
-    $("#saved-favorites").append('<div data-index="' + [i] + '""><p><button type="button" class="close" id="delete">&times;</button>'+ favName[i] + "</p>"
+    $("#saved-favorites").append('<div class="saved-fav" data-index="' + [i] + '""><p id="saved-fav-title"><button type="button" class="close" id="delete">&times;</button>'+ favName[i] + "</p>"
         + "<p>" + favAddress[i] + "</p>"
-        + "<p>Rating: " + favRating[i] + "/5</p></div>")
+        + "<p>Rating: " + favRating[i] + "/5</p>"
+        + '<a href="'+ favDirections[i] + '" target="_blank">Get Directions</a></div>')
     }
 };
 
@@ -397,7 +403,7 @@ $("#button-submit").click(function() {
 
     //Create map markers.
     function createMarker(place) {
-    	var directionsURL = "https://www.google.com/maps?q=" + place.formatted_address + '" target="_blank"';
+    	directionsURL = "https://www.google.com/maps?q=" + place.formatted_address + '"';
     	var marker = new google.maps.Marker({
     	  map: map,
     	  position: place.geometry.location
@@ -405,11 +411,11 @@ $("#button-submit").click(function() {
 
     	//Insert name, address, rating, and directions into marker info-windows. Revealed when clicked.
     	google.maps.event.addListener(marker, 'click', function() {
-            var data = 'data-name="' + place.name + '" data-address="' + place.formatted_address + '" data-rating="' + place.rating + '" data-saved="false"';
+            var data = 'data-name="' + place.name + '" data-address="' + place.formatted_address + '" data-rating="' + place.rating + '" data-directions="'+ directionsURL + '" data-saved="false"';
     		var contentString = '<div class="window-title">' + place.name + '</div>' 
     		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
     		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>'
-    		+ '<div class="window-directions"><a href="' + directionsURL + '>Get Directions</a></div>'
+    		+ '<div class="window-directions"><a href="' + directionsURL + '" target="_blank">Get Directions</a></div>'
             + '<div class="window-favorites"' + data + '><a>Save to Favorites</a></div>';
 
     		infowindow.setContent(contentString);
@@ -426,20 +432,24 @@ $(document).on("click", ".window-favorites", function() {
 
     if ($(this).attr("data-saved") === "false"){
         var newDiv = $('<div>');
-        newDiv.attr('data-index', favName.length)
-        newDiv.html('<p><button type="button" class="close" id="delete">&times;</button>' + $(this).attr("data-name") + '</p>' 
+        newDiv.addClass('saved-fav');
+        newDiv.attr('data-index', favName.length);
+        newDiv.html('<p id="saved-fav-title"><button type="button" class="close" id="delete">&times;</button>' + $(this).attr("data-name") + '</p>' 
             + '<p>' + $(this).attr("data-address") + '</p>'
-            + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>')
+            + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>'
+            + '<a href="'+ $(this).attr('data-directions') + '">Get Directions</a>')
 
         $("#saved-favorites").append(newDiv);
 
         favName.push($(this).attr("data-name"));
         favAddress.push($(this).attr("data-address"));
         favRating.push($(this).attr("data-rating"));
+        favDirections.push($(this).attr('data-directions'))
 
         localStorage.setItem("keyName", JSON.stringify(favName));
         localStorage.setItem("keyAddress", JSON.stringify(favAddress));
         localStorage.setItem("keyRating", JSON.stringify(favRating));
+        localStorage.setItem('keyDirections', JSON.stringify(favDirections));
 
         $(this).attr("data-saved", "true");
     }
