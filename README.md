@@ -2,7 +2,7 @@
 An easy to use, mobile friendly, app that lets friends find places they want to go to in just a few clicks.
 
 
-##See it in Action
+## See it in Action
 [Between You and Me](https://between-you-and-me.herokuapp.com/)
 
 ## Screenshots
