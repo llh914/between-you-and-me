@@ -32,7 +32,7 @@ if (favName === null) {
     $("#saved-favorites").append('<div class="saved-fav" data-index="' + [i] + '""><p id="saved-fav-title"><button type="button" class="close" id="delete">&times;</button>'+ favName[i] + "</p>"
         + "<p>" + favAddress[i] + "</p>"
         + "<p>Rating: " + favRating[i] + "/5</p>"
-        + '<a href="'+ favDirections[i] + '" target="_blank">Get Directions</a></div>')
+        + favDirections[i] + '" target="_blank">Get Directions</a></div>')
     }
 };
 
@@ -403,7 +403,11 @@ $("#button-submit").click(function() {
 
     //Create map markers.
     function createMarker(place) {
-    	directionsURL = "https://www.google.com/maps?q=" + place.formatted_address + '"';
+        var placeAddress = place.formatted_address
+        placeAddress = placeAddress.replace(/\s+/g, '+');  
+    	directionsURL = "https://www.google.com/maps/place/" + placeAddress + '"';
+        var linkToDirections = '<a href=' + directionsURL + ' target="_blank">Get Directions</a>'
+        var partLinkToDirections = '<a href=' + directionsURL + "'"
     	var marker = new google.maps.Marker({
     	  map: map,
     	  position: place.geometry.location
@@ -411,14 +415,14 @@ $("#button-submit").click(function() {
 
     	//Insert name, address, rating, and directions into marker info-windows. Revealed when clicked.
     	google.maps.event.addListener(marker, 'click', function() {
-            var data = 'data-name="' + place.name + '" data-address="' + place.formatted_address + '" data-rating="' + place.rating + '" data-directions="'+ directionsURL + '" data-saved="false"';
+            var data = 'data-name="' + place.name + '" data-address="' + place.formatted_address + '" data-rating="' + place.rating + '" data-directions="'+ partLinkToDirections + '" data-saved="false"';
     		var contentString = '<div class="window-title">' + place.name + '</div>' 
     		+ '<div class="window-content"><p>' + place.formatted_address + '</p></div>'
     		+ '<div class="window-rating"><p>Rating: ' + place.rating + ' out of 5</p></div>'
-    		+ '<div class="window-directions"><a href="' + directionsURL + '" target="_blank">Get Directions</a></div>'
+    		+ '<div class="window-directions">' + linkToDirections + '</div>'
             + '<div class="window-favorites"' + data + '><a>Save to Favorites</a></div>';
-
-    		infowindow.setContent(contentString);
+    		
+            infowindow.setContent(contentString);
     		
     		infowindow.open(map, this);
     	});
@@ -437,7 +441,7 @@ $(document).on("click", ".window-favorites", function() {
         newDiv.html('<p id="saved-fav-title"><button type="button" class="close" id="delete">&times;</button>' + $(this).attr("data-name") + '</p>' 
             + '<p>' + $(this).attr("data-address") + '</p>'
             + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>'
-            + '<a href="'+ $(this).attr('data-directions') + '" target="_blank">Get Directions</a>')
+            + $(this).attr('data-directions') + '" target="_blank">Get Directions</a>')
 
         $("#saved-favorites").append(newDiv);
 
