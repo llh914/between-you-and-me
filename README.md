@@ -11,15 +11,20 @@ An easy to use, mobile friendly, app that lets friends find places they want to 
 ![Screenshot 5](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/Screenshot5.png)
 ![Mobile View](https://github.com/meeshyd/between-you-and-me/blob/master/assets/Images/mobile1.jpg)
 
-
 ## Technologies Used
+- JavaScript
 - jQuery
 - Google Maps API (including Places, Geocoding, Autocomplete, and Geometry)
 - Bootstrap
 - Snazzy Maps
+- Google Fonts API
 
 ## How it Works
 Between You & Me works by finding the midpoint between two addresses. Then it makes suggestions for places that match the activity the user wants to do. If something looks good, the user can get a link to the directions and save the location to their favorites. For now, the list is saved in Local Storage, with the possibility of saving to Firebase in the future. In mobile, the panel is hidden and reappears when you click the menu button. 
+
+##Future Enhancements
+- [ ] save to favorites using Firebase
+- [ ] user login in feature
 
 ## Authors
 - [Michelle Didier](https://github.com/meeshyd)
