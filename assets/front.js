@@ -313,14 +313,14 @@ var mobileMenu = function() {
                 }, 200);
 
                 $body.animate({
-                  left: "60%"
+                  left: "70%"
                 }, 200);
             $menuButton.addClass('out').removeClass('in');
         };
         
         function slideIn() {
             $contentPanel.animate({
-                    left: "-60%"
+                    left: "-70%"
                 }, 200);
 
                 $body.animate({
