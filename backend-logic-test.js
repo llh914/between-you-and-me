@@ -441,7 +441,7 @@ $(document).on("click", ".window-favorites", function() {
         newDiv.html('<p id="saved-fav-title"><button type="button" class="close" id="delete">&times;</button>' + $(this).attr("data-name") + '</p>' 
             + '<p>' + $(this).attr("data-address") + '</p>'
             + '<p>Rating: ' + $(this).attr("data-rating")  + '/5</p>'
-            + $(this).attr('data-directions') + '" target="_blank">Get Directions</a>')
+            + '<a ' + $(this).attr('data-directions') + ' target="_blank">Get Directions</a>')
 
         $("#saved-favorites").append(newDiv);
 

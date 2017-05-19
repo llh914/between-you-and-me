@@ -9,6 +9,13 @@ html, body {
 	font-weight: 400;
 }
 
+a {
+	color: #8b8f93;
+}
+
+a:hover {
+	color: #00b7ce;
+}
 .form-control {
 	font-size: 16px;
 }
