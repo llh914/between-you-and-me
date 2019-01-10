@@ -90,15 +90,6 @@ function initMap() {
                 ]
             },
             {
-                "featureType": "poi.restaurant",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "hue": "#6fc6ca"
-                    },
-                ]
-            },
-            {
                 "featureType": "poi.park",
                 "elementType": "geometry.fill",
                 "stylers": [

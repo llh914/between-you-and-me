@@ -41,8 +41,8 @@ $("#button-submit").click(function() {
 	var address1 = $("#autocomplete").val().trim();
 	var address2 = $("#autocomplete2").val().trim();
 
-    var queryURL1 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address1;
-    var queryURL2 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address2;
+    var queryURL1 = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDwJBm1pISSYramEzFZiSHXi6G3NvBFOPk&address=" + address1;
+    var queryURL2 = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDwJBm1pISSYramEzFZiSHXi6G3NvBFOPk&address=" + address2;
 
     //Ajax call to Google geometry API to gather latitude and longitudes of addresses.
     $.ajax({
@@ -205,15 +205,6 @@ $("#button-submit").click(function() {
             },
             {
                 "featureType": "poi.business",
-                "elementType": "all",
-                "stylers": [
-                  {
-                      "hue": "#6fc6ca"
-                  },
-                ]
-            },
-            {
-                "featureType": "poi.restaurant",
                 "elementType": "all",
                 "stylers": [
                   {
